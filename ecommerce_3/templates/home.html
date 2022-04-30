@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>Salam Eziz</h1>
+    {% for p in product_list %}
+    <h3>{{p.title}}</h3>
+    <img src="{{p.image.url}}" alt="" width="200">
+    {% endfor %}
+{% endblock %}
