@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 
-{% block title %}Home{% endblock %}
+{% block title %} All Products {% endblock %}
 
 {% block content %}
 <div class="container">
-    <h1 class="text-center">Salam Eziz</h1>
-    <hr>
-    <div class="row mt-3">
-        {% for p in product_list %}
+    <h3>All Products</h3><hr>
+    {% for cat in allcategories %}
+    <h4>{{cat.title}}</h4><hr>
+    <div class="row">
+        {% for p in cat.product_set.all %}
         <div class="col-md-3" style="border: 1px solid rgb(16, 2, 141);">
             <div class="m-4">
-
                 <h4><a href="{% url 'apps:productdetail' p.slug %}">{{p.title}}</a></h4>
                 <img src="{{p.image.url}}" alt="" class="img-fluid" style="height: 2500; object-fit: cover;">
                 <p class="mt-3">Price: <strike>TMT: {{p.marked_price}}</strike> TMT: {{p.selling_price}}</p>
@@ -19,5 +19,6 @@
         </div>
         {% endfor %}
     </div>
+    {% endfor %}
 </div>
 {% endblock %}

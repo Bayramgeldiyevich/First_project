@@ -8,10 +8,11 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <a href="/">Home</a>
-    <a href="/about/">About us</a>
-    <a href="/contact/">Contact us</a>
-    <a href="https://google.com">Go to google</a>
+    <a href="{% url 'apps:home' %}">Home</a>
+    <a href="{% url 'apps:about' %}">About us</a>
+    <a href="{% url 'apps:contact' %}">Contact us</a>
+    <a href="{% url 'apps:allproducts' %}">Categories</a>
+
     <hr>
 
     {% block content %}
